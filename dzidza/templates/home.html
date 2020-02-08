@@ -41,5 +41,5 @@
           </div>
         </article>
     {% endfor %}
-    <button type="button" class="btn btn-primary">Primary</button>
+    <a href="{{ url_for('messenger', mentor_id=mentor.id) }}" class="btn btn-primary" role="button">Primary</button>
 {% endblock content %}
