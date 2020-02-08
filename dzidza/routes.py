@@ -15,9 +15,9 @@ class Mentor():
         self.job = job
         self.description = description
 
-mentor1 = Mentor("Pelagia", "Haverford College '22", "Software Developer at Digital Scholarship", "")
-mentor2 = Mentor("Pelagia 2", "Haverford College '22", "Software Developer at Digital Scholarship", "")
-mentor3 = Mentor("Pelagia 3", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+mentor1 = Mentor("Pelagia Majoni", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+mentor2 = Mentor("Jabulani Kamba", "Northwestern University '14", "Project Manager at Microsoft", "")
+mentor3 = Mentor("Kuda Kadye", "Haverford College '22", "Software Developer at Digital Scholarship", "")
 
 all_mentors = [mentor1, mentor2, mentor3]
 
