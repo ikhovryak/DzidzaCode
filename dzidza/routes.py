@@ -64,6 +64,14 @@ def login():
     return render_template('login.html', title='Login', form=form)
 
 
+@app.route("/problems", methods=['GET', 'POST'])
+def problems():
+    if current_user.is_authenticated:
+        return render_template('problems.html', title='Problems')
+    else:
+        return redirect(url_for('login'))
+
+
 @app.route("/logout")
 def logout():
     logout_user()
