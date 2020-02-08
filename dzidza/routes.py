@@ -7,7 +7,19 @@ from dzidza.forms import RegistrationForm, LoginForm, UpdateAccountForm, PostFor
 from dzidza.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
+class Mentor():
+    def __init__(self, name, education, job, description):
+        # signal is a one dimensional array, a time series, for example acceleration in dimension x
+        self.name = name
+        self.education = education
+        self.job = job
+        self.description = description
 
+mentor1 = Mentor("Pelagia", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+mentor2 = Mentor("Pelagia 2", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+mentor3 = Mentor("Pelagia 3", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+
+all_mentors = [mentor1, mentor2, mentor3]
 
 @app.route("/")
 @app.route("/home")
@@ -143,3 +155,8 @@ def delete_post(post_id):
     db.session.commit()
     flash('Your post has been deleted!', 'success')
     return redirect(url_for('home'))
+
+
+@app.route("/find_mentors")
+def find_mentors():
+    return render_template("mentors_init.html", mentors=all_mentors)

@@ -4,21 +4,18 @@
     <h2>Dzidza allows you to connect with Zimbabwean mentors from all around the world.</h3>
     <h2>Choose a mentor:</h2>
 
-    {% for mentor in mentors %}
+    <!-- {% for mentor in mentors %}
         <article class="media content-section">
-          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename='profile_pics/default.jpg') }}">
           <div class="media-body">
-            <!-- <div class="article-metadata">
-              <a class="mr-2" href="#">{{ mentor.name }}</a>
-              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
-            </div> -->
-            <h2><a class="article-title">{{ mentor.name }}}</a></h2>
-            <h3><a class="article-title">{{ mentor.job }}}</a></h3>
-            <h3><a class="article-title">{{ mentor.education }}}</a></h3>
+
+            <h2><a class="article-title">{{ mentor.name }}</a></h2>
+            <h3><a class="article-title">{{ mentor.job }}</a></h3>
+            <h3><a class="article-title">{{ mentor.education }}</a></h3>
             <p class="article-content">{{ mentor.description }}</p>
-            <a href="{{ url_for('mentorship', mentor_id=mentor.id) }}" class="btn btn-primary" role="button">Choose this mentor</a>
+            <a href="#" class="btn btn-primary" role="button">Choose this mentor</a>
 
           </div>
         </article>
-    {% endfor %}
+    {% endfor %} -->
 {% endblock %}
