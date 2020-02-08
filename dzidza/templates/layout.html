@@ -10,50 +10,28 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
-    {% if title %}
-<<<<<<< HEAD
-        <title>DziDzaCode - {{ title }}</title>
-    {% else %}
-        <title>DzidzaCode</title>
-=======
-        <title>Hack for Zimbabwe - {{ title }}</title>
-    {% else %}
-        <title>Hack for Zimbabwe</title>
->>>>>>> 59299fd4455115e1ca1a0700e827fb04be393ddb
-    {% endif %}
 </head>
 <body>
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-<<<<<<< HEAD
-          <a class="navbar-brand mr-4" href="/">DzidzaCode
-          
-          </a>
-
-=======
-          <a class="navbar-brand mr-4" href="/">Flask Blog</a>
->>>>>>> 59299fd4455115e1ca1a0700e827fb04be393ddb
+          <a class="navbar-brand mr-4" href="/">DzidzaCode</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-<<<<<<< HEAD
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">Connect with a Mentor</a>
-=======
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
->>>>>>> 59299fd4455115e1ca1a0700e827fb04be393ddb
+              
+              <a class="nav-item nav-link" href="{{ url_for('about') }}">Resources</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if current_user.is_authenticated %}
-<<<<<<< HEAD
-                <a class="nav-item nav-link" href="{{ url_for('new_post') }}">Resources</a>
-=======
-                <a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a>
->>>>>>> 59299fd4455115e1ca1a0700e827fb04be393ddb
+
+                <!-- <a class="nav-item nav-link" href="{{ url_for('new_post') }}">Resources</a> -->
+                <a class="nav-item nav-link" href="{{ url_for('find_mentors') }}">Mentorship</a>
+
                 <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
                 <a class="nav-item nav-link" href="{{ url_for('problems') }}">Problems</a>
                 <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
