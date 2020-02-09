@@ -48,7 +48,9 @@ def home():
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
-
+@app.route("/resources")
+def resources():
+    return render_template('resources.html', title='Resources')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
