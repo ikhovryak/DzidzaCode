@@ -8,18 +8,35 @@ from dzidza.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
 class Mentor():
-    def __init__(self, name, education, job, image):
+    def __init__(self, id, name, education, job, image, linkedin):
         # signal is a one dimensional array, a time series, for example acceleration in dimension x
+        self.id = id
         self.name = name
         self.education = education
         self.job = job
         self.image = image
+        self.linkedin = linkedin
 
-mentor1 = Mentor("Pelagia Majoni", "Haverford College '22", "Software Developer at Digital Scholarship", "pelagia.jpeg")
-mentor2 = Mentor("Joy Kamba", "Northwestern University '14", "Project Manager at Microsoft", "Joy.png")
-mentor3 = Mentor("Rudo Kadye", "University of Michigan '18", "Machine Learning Researcher at Unikversity of Michigan", "Rudo.png")
+class Assignment():
+    def __init__(self, id, name, path, isDone, isCorrect):
+        self.id = id
+        self.name = name
+        self.path = path
+        self.isDone = isDone
+        self.isCorrect = isCorrect
+
+mentor1 = Mentor(0, "Pelagia Majoni", "Haverford College '22", "Software Developer at Digital Scholarship", "pelagia.jpeg", "https://www.linkedin.com/in/pmajoni/")
+mentor2 = Mentor(1, "Joy Kamba", "Northwestern University '14", "Project Manager at Microsoft", "Joy.png", "")
+mentor3 = Mentor(2, "Rudo Kadye", "University of Michigan '18", "Machine Learning Researcher at Unikversity of Michigan", "Rudo.png", "")
 
 all_mentors = [mentor1, mentor2, mentor3]
+
+assig1 = Assignment(1, "1: Data Types and Operators", 'ass1', False, False)
+assig2 = Assignment(2, "2: Data Structures", 'ass2', False, False)
+assig3 = Assignment(3, "3: If Else Statements", 'ass3', False, False)
+assig4 = Assignment(4, "4: Functions", 'ass4', False, False)
+
+all_assignments = [assig1, assig2, assig3, assig4]
 
 @app.route("/")
 @app.route("/home")
@@ -168,9 +185,72 @@ def delete_post(post_id):
 @app.route("/find_mentors")
 @login_required
 def find_mentors():
-    return render_template("mentors_init.html", mentors=all_mentors)
+    if (current_user.mentor==-1):
+        return render_template("mentors_init.html", mentors=all_mentors)
+    else:
+        cur_mentor = mentor1
+        for mentor in all_mentors:
+            if mentor.id==current_user.mentor:
+                cur_mentor = mentor
+                break
+        
+        return redirect(url_for('mentorship', curmentor=cur_mentor))
+    
 
 @app.route("/mentorship/<curmentor>")
 @login_required
 def mentorship(curmentor):
-    return render_template("mentorship.html", mentor=curmentor)
+    cur_mentor = mentor1
+    for mentor in all_mentors:
+        if mentor.id==curmentor:
+            cur_mentor = mentor
+    current_user.mentor = cur_mentor.id
+    db.session.commit()
+    return redirect(url_for('practice', mentor=cur_mentor))
+
+@app.route("/mentorship2/<mentor>")
+@login_required
+def practice(mentor):
+    cur_ass = all_assignments[0]
+    for i in range(len(all_assignments)):
+        if(all_assignments[i].isDone==False):
+            cur_ass = all_assignments[i]
+            break
+
+    return redirect(url_for(cur_ass.path, mentor=mentor, assignments=all_assignments))
+
+@app.route("/assignment1/<mentor>")
+@login_required
+def ass1(mentor):
+    cur_mentor = mentor1
+    for mentor in all_mentors:
+        if mentor.id==mentor:
+            cur_mentor = mentor
+    return render_template("ass1.html", mentor=cur_mentor, assignments=all_assignments)
+
+@app.route("/assignment2/<mentor>")
+@login_required
+def ass2(mentor):
+    cur_mentor = mentor1
+    for mentor in all_mentors:
+        if mentor.id==mentor:
+            cur_mentor = mentor
+    return render_template("ass2.html", mentor=cur_mentor, assignments=all_assignments)
+
+@app.route("/assignment3/<mentor>")
+@login_required
+def ass3(mentor):
+    cur_mentor = mentor1
+    for mentor in all_mentors:
+        if mentor.id==mentor:
+            cur_mentor = mentor
+    return render_template("ass3.html", mentor=cur_mentor, assignments=all_assignments)
+
+@app.route("/assignment4/<mentor>")
+@login_required
+def ass4(mentor):
+    cur_mentor = mentor1
+    for mentor in all_mentors:
+        if mentor.id==mentor:
+            cur_mentor = mentor
+    return render_template("ass4.html", mentor=cur_mentor, assignments=all_assignments)

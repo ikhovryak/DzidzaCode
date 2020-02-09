@@ -10,7 +10,7 @@
             <h5>{{ mentor.name }}</h5>
             <p>{{ mentor.job }} </br> {{ mentor.education }}</p>
             <p class="article-content">{{ mentor.description }}</p>
-            <a href="{{ url_for('mentorship', curmentor=mentor.name) }}" class="btn btn-sm btn-primary" role="button">Choose this mentor</a>
+            <a href="{{ url_for('mentorship', curmentor=mentor.id) }}" class="btn btn-sm btn-primary" role="button">Choose this mentor</a>
           </div>
         </article>
     {% endfor %}
