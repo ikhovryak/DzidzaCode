@@ -8,16 +8,16 @@ from dzidza.models import User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
 class Mentor():
-    def __init__(self, name, education, job, description):
+    def __init__(self, name, education, job, image):
         # signal is a one dimensional array, a time series, for example acceleration in dimension x
         self.name = name
         self.education = education
         self.job = job
-        self.description = description
+        self.image = image
 
-mentor1 = Mentor("Pelagia Majoni", "Haverford College '22", "Software Developer at Digital Scholarship", "")
-mentor2 = Mentor("Jabulani Kamba", "Northwestern University '14", "Project Manager at Microsoft", "")
-mentor3 = Mentor("Kuda Kadye", "Haverford College '22", "Software Developer at Digital Scholarship", "")
+mentor1 = Mentor("Pelagia Majoni", "Haverford College '22", "Software Developer at Digital Scholarship", "pelagia.jpeg")
+mentor2 = Mentor("Joy Kamba", "Northwestern University '14", "Project Manager at Microsoft", "Joy.png")
+mentor3 = Mentor("Rudo Kadye", "University of Michigan '18", "Machine Learning Researcher at Unikversity of Michigan", "Rudo.png")
 
 all_mentors = [mentor1, mentor2, mentor3]
 
@@ -31,7 +31,9 @@ def home():
 @app.route("/about")
 def about():
     return render_template('about.html', title='About')
-
+@app.route("/resources")
+def resources():
+    return render_template('resources.html', title='Resources')
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -166,5 +168,11 @@ def delete_post(post_id):
 
 
 @app.route("/find_mentors")
+@login_required
 def find_mentors():
     return render_template("mentors_init.html", mentors=all_mentors)
+
+@app.route("/mentorship/<curmentor>")
+@login_required
+def mentorship(curmentor):
+    return render_template("mentorship.html", mentor=curmentor)

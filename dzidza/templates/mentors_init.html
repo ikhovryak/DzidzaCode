@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Choose a mentor:</h1>
+    <h3>Choose a mentor:</h3>
     <p>Dzidza allows you to connect with Zimbabwean mentors from all around the world.</p>
 
     {% for mentor in mentors %}
         <article class="media content-section">
-          <!-- <img class="rounded-circle article-img" src="{{ url_for('static', filename="{{ mentor.image }}") }}"> -->
+          <img class="rounded-circle article-img" src="{{ url_for('static', filename=mentor.image) }}">
           <div class="media-body">
             <h5>{{ mentor.name }}</h5>
             <p>{{ mentor.job }} </br> {{ mentor.education }}</p>
             <p class="article-content">{{ mentor.description }}</p>
-            <a href="#" class="btn btn-sm btn-primary" role="button">Choose this mentor</a>
+            <a href="{{ url_for('mentorship', curmentor=mentor.name) }}" class="btn btn-sm btn-primary" role="button">Choose this mentor</a>
           </div>
         </article>
     {% endfor %}
