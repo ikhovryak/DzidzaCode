@@ -90,7 +90,6 @@
                 <!-- <a class="nav-item nav-link" href="{{ url_for('new_post') }}">Resources</a> -->
                 <a class="nav-item nav-link" href="{{ url_for('find_mentors') }}">Mentorship</a>
                 <a class="nav-item nav-link" href="{{ url_for('account') }}">Account</a>
-                <a class="nav-item nav-link" href="{{ url_for('problems') }}">Problems</a>
                 <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
               {% else %}
                 <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
@@ -142,33 +141,37 @@
     <div class="container">
     <div class="row">
     <div class="col-lg-5 col-xs-12 about-company">
-      <h3>Heading</h3>
-       <a <img src="{{ url_for('static', filename='longLogo.png') }}" height="" alt=""></a>
-      <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
+       <a><img src="{{ url_for('static', filename='longLogo.png') }}" height="50px" alt=""></a>
+      <p class="pr-5 text-white-50">DzidzaCode is the most efficient way for Zimbabwean students to connect with a mentor and begin their computing journey </p>
       <p><a href="#"><i class="fa fa-facebook-square mr-1"></i></a><a href="#"><i class="fa fa-linkedin-square"></i></a></p>
     </div>
     <div class="col-lg-3 col-xs-12 links">
-      <h4 class="mt-lg-0 mt-sm-3">Links</h4>
+      <h5 class="mt-lg-0 mt-sm-3">Links</h5>
         <ul class="m-0 p-0">
           <li>- <a href="#">Home</a></li>
-          <li>- <a href="#">Resources</a></li>
-          <li>- <a href="#">Login</a></li>
+          <li>- <a href="{{ url_for('resources') }}">Resources</a></li>
+          <!-- <li>- <a href="#">Login</a></li> -->
           <li>- <a href="#">Register</a></li>
           <li>- <a href="#">Mentorship</a></li>
-          <li>- <a href="#">Account</a></li>
-          <li>- <a href="#">Logout</a></li>
+          <!-- <li>- <a href="#">Account</a></li>
+          <li>- <a href="#">Logout</a></li> -->
         </ul>
     </div>
     <div class="col-lg-4 col-xs-12 location">
-      <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-      <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-      <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-      <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+      <h5 class="mt-lg-0 mt-sm-4">FemmeHacks Team:</h5>
+      <ul class="m-0 p-0">
+            <li> Iryna Khovryak</li>
+            <li> Claire Quigg</li>
+            <li> Pelagia Majoni</li>
+            <li> Krystal Jo</li>
+      </ul>
+      
+      
     </div>
   </div>
   <div class="row mt-2">
     <div class="col copyright">
-      <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+      <p class=""><small class="text-white-50">© 2020. All Rights Reserved.</small></p>
     </div>
   </div>
 </div>
