@@ -1,16 +1,17 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="jumbotron">
-
+    <!-- This is where the top of the page diplays the info -->
     <div class="text-center">
       <img src="{{ url_for('static', filename='LogoCropper.png') }}" height="125" alt="">
-      <h1 class="display-3">Connect · Code · Empower</h1>
+      <h1 class="display-3">Connect · Code · <strong>Empower</strong></h1>
       <p>DzidzaCode is the most efficient way for Zimbabwean students to connect with a mentor and begin their computing journey.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Connect Now &raquo;</a></p>
+      <p><a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button">Sign Up Now &raquo;</a>
+      </p>
 
     </div>
   </div>
-
+<!-- Pictures and explainations of our story, problems and solutions -->
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
@@ -36,17 +37,47 @@
       </div>
       <div class="col-md-4">
         <h2>Problem:</h2>
-        <p>Many students in Zimbabwe don't have access to computers, </p>
+        <p>In the Zimbabwean language, Shona, the word for computer does not exist. Although students are curious, talented, and intelligent, they do not have the opportunity to code because they do not have mentors to look up to and resources specifically designed to meet their needs.  </p>
       </div>
       <div class="col-md-4">
         <h2>Story:</h2>
-        <p>Pelagia started a bootcamp at home in Zimbabwe, and realized the immense need for mentorship and coding curriculum for computer science students</p>
+        <p>Last month, one of our co-founders, Pelagia Majoni, started an Introduction to Programming Boot Camp. She realized the immense need for mentorship, inspiration and resources for students to pursue their journey in tech. </p>
       </div>
       <div class="col-md-4">
         <h2>Solution:</h2>
-        <p>We created DziDzaCode to help Zimbabwean students connect with a mentor, learn how to code, and find professional development resources for their future careers in Computuer Science. </p>
+        <p>We created DzidzaCode to help Zimbabwean students connect with a mentor, learn how to code, and find professional development resources for their future careers in Computuer Science. </p>
 
       </div>
+
+      <!-- This is where we list the steps of how it works -->
+    </div>
+    <div class="p-3 mb-2 bg-steel text-white">
+        <h2  class="text-center text-white" >How Does it Work?</h2>
+        </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>1. Create a Profile</h4>
+      <p>Sign up using your email and add a profile picture so you can save your code.</p>
+    </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>2. Connect with a Mentor</h4>
+      <p>Read the mentor descriptions and choose what mentor you would like to work with. Connect with the mentor to begin your curriculum. Chat with your mentor and view your assignments in the Mentorship tab. </p>
+    </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>3. Practice using Resources</h4>
+      <p>Train your brain by using our free resources. Download textbooks, practice coding problems and enhance your skills. From Beginner to Advanced, these resources are helpful for any coder! </p>
+    </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>4. Complete Assignments</h4>
+      <p>Submit your assignments to be reviewed by your mentor. Like taking a test, without any of the stress!</p>
+    </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>5. Get Mentor Feedback</h4>
+      <p>Get feedback on your submitted assignments. Your mentor will message you with corrections, advise, and resources to help practice your skills.</p>
+    </div>
+    <div class="bd-callout bd-callout-info">
+      <h4>6. Be a Computer Science Pro!</h4>
+      <p>With our resources and mentor feedback, achieve your coding goals and strive for success!</p>
+    </div>
     </div>
 <!-- 
     {% for post in posts %}
